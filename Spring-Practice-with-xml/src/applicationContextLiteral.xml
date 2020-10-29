@@ -9,25 +9,12 @@
 
    <!-- add entry to enable component scanning -->
    
-   
-   <!-- add dependency -->
-   <bean id="myFortune"
-   		class="Com.dipractice.HappyFortune">
-   </bean>
-   
-   
-<!--    Dependency with Constructor Argument -->  
-<!--  <bean id="myCoach"
-   		class="Com.dipractice.TennisCoach"
-   		scope="prototype">
-   		<constructor-arg ref="myFortune"></constructor-arg>
-   </bean> -->
-   
-   
-   <bean id="myCoach"
-   class="Com.dipractice.TennisCoach">
-   <property name="FortuneService" ref="myFortune"></property>
-   </bean>
+  	<bean id="myCoach"
+  		class="Com.dipractice.litralvalue.TennisCoach">
+  		<property name="coachName" value="Yogesh"></property>
+  		<property name="coachEmail" value="Yogesh@mail.com"></property>
+  	</bean>
+  
 </beans>
 
 
