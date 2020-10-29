@@ -2,7 +2,8 @@ package com.springannotationIOC;
 
 import org.springframework.stereotype.Component;
 
-@Component("myCoach")
+
+@Component  //Default        @Component("myCoach") explicit
 public class CricketCoach implements Coach {
 
 	@Override
