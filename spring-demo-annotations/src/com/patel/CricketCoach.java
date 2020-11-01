@@ -1,5 +1,7 @@
 package com.patel;
 
+import java.io.IOException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
@@ -22,7 +24,7 @@ public class CricketCoach implements Coach {
 	}
 
 	@Override
-	public String getDailyFortune() {
+	public String getDailyFortune() throws IOException {
 		// TODO Auto-generated method stub
 		return fortuneService.getFortune();
 	}

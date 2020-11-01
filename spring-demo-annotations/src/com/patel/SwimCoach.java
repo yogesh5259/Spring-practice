@@ -1,5 +1,7 @@
 package com.patel;
 
+import java.io.IOException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -26,7 +28,7 @@ public class SwimCoach implements Coach {
 	}
 
 	@Override
-	public String getDailyFortune() {
+	public String getDailyFortune() throws IOException {
 		// TODO Auto-generated method stub
 		return fortuneService.getFortune();
 	}

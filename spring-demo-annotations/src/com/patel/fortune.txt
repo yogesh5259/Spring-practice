@@ -1,0 +1,3 @@
+Today is your lucky day!
+Today is normal day!
+Today is java day!

@@ -1,5 +1,7 @@
 package com.patel;
 
+import java.io.IOException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
@@ -8,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class TennisCoach implements Coach {
 
 	@Autowired
-	@Qualifier("randomFortuneService")
+	@Qualifier("fileFortuneService")
 	private FortuneService fortuneService;
 
 	/*
@@ -19,9 +21,9 @@ public class TennisCoach implements Coach {
 	*/
 	
 	// define default constructor
-	public TennisCoach() {
-		System.out.println("TennisCoach: inside default constructor");
-	}
+//	public TennisCoach() {
+//		System.out.println("TennisCoach: inside default constructor");
+//	}
 	
 	/*
 	// define a setter method
@@ -48,7 +50,7 @@ public class TennisCoach implements Coach {
 	}
 
 	@Override
-	public String getDailyFortune() {
+	public String getDailyFortune() throws IOException {
 		return fortuneService.getFortune() + " with TennisCoach";
 	}
 

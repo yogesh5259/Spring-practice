@@ -1,5 +1,7 @@
 package com.patel;
 
+import java.io.IOException;
+
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class AnnotationDemoApp {
@@ -12,13 +14,18 @@ public class AnnotationDemoApp {
 		
 		// get the bean from spring container 
 		
-		Coach theCoach = context.getBean("swimCoach", Coach.class); 
+		Coach theCoach = context.getBean("tennisCoach", Coach.class); 
 		
 		// call a method on bean
 		
 		System.out.println(theCoach.getDailyWorkout());
 		
-		System.out.println(theCoach.getDailyFortune());
+		try {
+			System.out.println(theCoach.getDailyFortune());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		
 		
