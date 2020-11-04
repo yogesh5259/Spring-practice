@@ -2,16 +2,33 @@ package com.patel;
 
 import java.io.IOException;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
+@Scope("singleton")
 public class TennisCoach implements Coach {
 
 	@Autowired
 	@Qualifier("fileFortuneService")
 	private FortuneService fortuneService;
+	
+	
+	@PostConstruct
+	public void initMethod() {
+		System.out.println("inside init method form tennisCoach");
+	}
+	
+	@PreDestroy
+	public void destroy() {
+		System.out.println("inside destroy method form tennisCoach");
+		
+	}
 
 	/*
 	@Autowired
