@@ -8,6 +8,9 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 import org.springframework.stereotype.Component;
 
 
@@ -20,6 +23,12 @@ public class FileFortuneService implements FortuneService{
 	private List<String> theFortunes;
 	
 	public FileFortuneService() {
+		System.out.println("Inside default constructor of FileFortuneService()");
+	}
+	
+	@PostConstruct
+	public void loadFile() {
+		System.out.println("Loading Fortune From the File...");
 		theFortunes = new ArrayList<>();
 		if (file.exists()) {
 			try {
@@ -32,7 +41,15 @@ public class FileFortuneService implements FortuneService{
 				e.printStackTrace();
 			}
 		}
+		System.out.println("Loading from file is completed...");
 	}
+	
+	@PreDestroy
+	public void closeFile() {
+		System.out.println("End of FileFortuneService instance!");
+	}
+	
+	
 	
 	@Override
 	public String getFortune() {

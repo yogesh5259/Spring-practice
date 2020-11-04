@@ -5,14 +5,15 @@ import java.io.IOException;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
+import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
-@Scope("singleton")
-public class TennisCoach implements Coach {
+@Scope("prototype")
+public class TennisCoach implements Coach,DisposableBean {
 
 	@Autowired
 	@Qualifier("fileFortuneService")
@@ -20,15 +21,20 @@ public class TennisCoach implements Coach {
 	
 	
 	@PostConstruct
-	public void initMethod() {
-		System.out.println("inside init method form tennisCoach");
+	public void doMyStartupStuff() {
+		System.out.println(">> TennisCoach: inside of doMyStartupStuff()");
 	}
 	
-	@PreDestroy
 	public void destroy() {
-		System.out.println("inside destroy method form tennisCoach");
+		System.out.println(">> TennisCoach: inside of destroy()");
+	}
+	/*
+	@PreDestroy
+	public void doMyCleanupStuff() {
+		System.out.println(">> TennisCoach: inside of doMyCleanupStuff()");
 		
 	}
+	*/
 
 	/*
 	@Autowired
@@ -38,9 +44,9 @@ public class TennisCoach implements Coach {
 	*/
 	
 	// define default constructor
-//	public TennisCoach() {
-//		System.out.println("TennisCoach: inside default constructor");
-//	}
+	public TennisCoach() {
+		System.out.println("TennisCoach: inside default constructor");
+	}
 	
 	/*
 	// define a setter method
