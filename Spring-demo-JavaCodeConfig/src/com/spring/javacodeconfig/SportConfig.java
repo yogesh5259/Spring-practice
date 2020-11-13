@@ -21,4 +21,18 @@ public class SportConfig {
 		return new SwimCoach(sadFortuneService());
 	}
 	
+	//Define bean for fortune service 
+		private FortuneService newFortune() {
+			return new NewFortune();
+		}
+	
+	//Define bean for cricket coach and inject fortune dependency
+	@Bean
+	public Coach cricketCoach() {
+		return new CricketCoach(newFortune());
+		
+	}
+
+	
+	
 }
