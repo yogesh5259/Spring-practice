@@ -14,7 +14,7 @@ public class JavaConfigDemoApp {
 		
 		// get the bean from spring container 
 		
-		Coach theCoach = context.getBean("swimCoach", Coach.class); 
+		SwimCoach theCoach = context.getBean("swimCoach", SwimCoach.class); 
 		
 		// call a method on bean
 		
@@ -27,7 +27,10 @@ public class JavaConfigDemoApp {
 			e.printStackTrace();
 		}
 		
+		// call our new Swim Coach methods .... has the pro value injected 
 		
+		System.out.println("email :" + theCoach.getEmail());
+		System.out.println("team: " + theCoach.getTeam());
 		
 		
 		// close the context
