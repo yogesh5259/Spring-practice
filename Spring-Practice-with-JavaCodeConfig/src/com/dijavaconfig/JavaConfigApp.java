@@ -11,7 +11,7 @@ public class JavaConfigApp {
 		
 		
 		//Get the bean from Spring Container
-		Coach theCoach = context.getBean("baseBall",Coach.class);
+		Coach theCoach = context.getBean("baseBallCoach",Coach.class);
 		
 		// call the method on bean
 		System.out.println(theCoach.dailyWork());
