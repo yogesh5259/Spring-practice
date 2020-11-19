@@ -15,6 +15,7 @@ public class JavaConfigApp {
 		
 		// call the method on bean
 		System.out.println(theCoach.dailyWork());
+		System.out.println(theCoach.getFortune());
 		
 		//close the context
 		context.close();
