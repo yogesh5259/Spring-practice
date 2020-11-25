@@ -8,11 +8,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
+@RequestMapping("/hello") //Parent mapping
 public class HelloworldController {
 
 	//need a controller method to show the initial HTMl form
 	
-	@RequestMapping("/showForm")
+	@RequestMapping("/showForm") // full path /hello/showForm
 	public String showForm() {
 		return "helloworld-form";
 	}
