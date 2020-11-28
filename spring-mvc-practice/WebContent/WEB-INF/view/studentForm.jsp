@@ -5,7 +5,7 @@
 </head>
 <body>
 	<h2>Submit the form</h2>
-	<form action="processForm">
+	<form action="processFormVersionThree">
 		<input type="text" name="studentName" placeholder="what's your name?" />
 		<input type="submit"/>
 	</form>

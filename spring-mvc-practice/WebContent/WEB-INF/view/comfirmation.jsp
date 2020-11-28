@@ -5,6 +5,6 @@
 </head>
 
 <body>
-	<h2>Welcome to java community! ${param.studentName}	</h2>
+	<h2>Welcome to java community version TWO ! ${message}</h2>
 </body>
 </html>
