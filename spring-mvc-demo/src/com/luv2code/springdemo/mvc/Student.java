@@ -1,5 +1,6 @@
 package com.luv2code.springdemo.mvc;
 
+import java.util.LinkedHashMap;
 
 public class Student {
 
@@ -8,6 +9,9 @@ public class Student {
 	
 	private String country;
 	
+	private String favoriteLanguage;
+	
+	private LinkedHashMap<String, String> favoriteLanguageOptions;
 //	private LinkedHashMap<String, String> countryOptions;
 	
 	public Student() {
@@ -18,6 +22,15 @@ public class Student {
 //		countryOptions.put("DE", "Germany");
 //		countryOptions.put("IN", "INDIA");
 //		countryOptions.put("US", "United State Of America");
+		
+		
+		favoriteLanguageOptions = new LinkedHashMap<String, String>();
+		favoriteLanguageOptions.put("Java", "Java");
+		favoriteLanguageOptions.put("C#", "C#");
+		favoriteLanguageOptions.put("PHP", "PHP");
+		favoriteLanguageOptions.put("Ruby", "Ruby");
+		favoriteLanguageOptions.put("Python", "Python");
+
 
 	}
 
@@ -45,10 +58,24 @@ public class Student {
 		this.country = country;
 	}
 
+	public String getFavoriteLanguage() {
+		return favoriteLanguage;
+	}
+
+	public void setFavoriteLanguage(String favoriteLanguage) {
+		this.favoriteLanguage = favoriteLanguage;
+	}
+
+	public LinkedHashMap<String, String> getFavoriteLanguageOptions() {
+		return favoriteLanguageOptions;
+	}
+
 //	public LinkedHashMap<String, String> getCountryOptions() {
 //		return countryOptions;
 //	}
 //	
+	
+	
 	
 	
 }

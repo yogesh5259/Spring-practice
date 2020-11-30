@@ -8,5 +8,7 @@
 	
 	<br><br>
 	Country : ${student.country}
+	<br><br>
+	Favorite Language: ${student.favoriteLanguage}
 </body>
 </html>
