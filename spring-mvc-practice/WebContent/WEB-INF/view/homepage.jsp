@@ -5,6 +5,6 @@
 </head>
 <body>
 	<h2>Welcome to spring application!</h2>
-	<button><a href="hello/ShowForm">Show Form</a></button>
+	<button><a href="ShowForm">Show Form</a></button>
 </body>
 </html>
