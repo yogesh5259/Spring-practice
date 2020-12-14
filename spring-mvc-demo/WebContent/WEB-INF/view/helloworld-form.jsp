@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Hello world - Input Form</title>
+	<title>Hello World - Input Form</title>
 </head>
 
 <body>
-	<form action="processFormVersionThree" method="get">
+
+	<form action="processFormVersionTwo" method="GET">
+	
 		<input type="text" name="studentName"
-			placeholder="what's your name?" />
-		<input type="submit"/>
+			placeholder="What's your name?" />
+			
+		<input type="submit" />
+			
 	</form>
+
 </body>
+
 </html>
+
+
