@@ -7,6 +7,7 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import com.luv2code.springdemo.mvc.validation.CourseCode;
+import com.luv2code.springdemo.mvc.validation.CustomerMail;
 
 public class Customer {
 
@@ -26,6 +27,9 @@ public class Customer {
 	
 	@CourseCode(value = "TOP", message = "Must start with TOP!")
 	private String courseCode;
+	
+	@CustomerMail(valueOne = ".pqr", valueTwo = ".xyz", message = "Email id must end with .pqr and .xyz")
+	private String customerMail;
 	
 	public String getCourseCode() {
 		return courseCode;
@@ -65,6 +69,14 @@ public class Customer {
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+	}
+
+	public String getCustomerMail() {
+		return customerMail;
+	}
+
+	public void setCustomerMail(String customerMail) {
+		this.customerMail = customerMail;
 	}
 
 	

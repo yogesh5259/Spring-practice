@@ -39,6 +39,9 @@
 		<form:errors path="courseCode" cssClass="error" />
 		
 		<br><br>
+		Customer Email: <form:input path="customerMail"/>
+		<form:errors path="customerMail" cssClass="error" />
+		<br><br>
 
 		<input type="submit" value="Submit" />
 				
