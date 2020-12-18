@@ -28,7 +28,7 @@ public class Customer {
 	@CourseCode(value = "TOP", message = "Must start with TOP!")
 	private String courseCode;
 	
-	@CustomerMail(valueOne = ".pqr", valueTwo = ".xyz", message = "Email id must end with .pqr and .xyz")
+	@CustomerMail(message = "Email id must end with .com or .org or .edu")
 	private String customerMail;
 	
 	public String getCourseCode() {

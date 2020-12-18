@@ -5,15 +5,13 @@ import javax.validation.ConstraintValidatorContext;
 
 public class CustomerMailConstraintValidator implements ConstraintValidator<CustomerMail, String> {
 
-	private String customerMailValueOne;
-	private String customerMailValueTwo;
+	
+	private String[] customerMailValue;
 
 	
 	@Override
 	public void initialize(CustomerMail thecustomerMail) {
-		customerMailValueOne = thecustomerMail.valueOne();
-		customerMailValueTwo = thecustomerMail.valueTwo();
-
+		customerMailValue = thecustomerMail.value();
 	}
 	
 	@Override
@@ -22,7 +20,12 @@ public class CustomerMailConstraintValidator implements ConstraintValidator<Cust
 		boolean result = false;
 		
 		if(theMail != null) {
-			result = theMail.endsWith(customerMailValueOne) | theMail.endsWith(customerMailValueTwo);
+			for(String s : customerMailValue) {
+				if (theMail.toLowerCase().endsWith(s)) {
+					result = true;
+					break;
+				}
+			}
 			return result;
 		} else {
 			return true;

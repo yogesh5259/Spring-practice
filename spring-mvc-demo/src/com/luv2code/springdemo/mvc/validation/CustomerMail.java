@@ -13,9 +13,7 @@ import javax.validation.Payload;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface CustomerMail {
 
-	public String valueOne() default ".org";
-	
-	public String valueTwo() default ".com";
+	public String[] value() default {".com",".org",".edu"};
 	
 	public String message() default "Email id must end with .com or .org";
 	
