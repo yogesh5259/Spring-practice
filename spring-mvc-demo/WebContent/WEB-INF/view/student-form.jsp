@@ -24,7 +24,7 @@
 		
 		<form:select path="country">
 		
-			<form:options items="${student.countryOptions}" />
+			<form:options items="${countryOptions}" />
 			
 		</form:select>
 				
