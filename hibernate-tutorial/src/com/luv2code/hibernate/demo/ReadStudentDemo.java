@@ -1,5 +1,7 @@
 package com.luv2code.hibernate.demo;
 
+import java.util.Date;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -21,9 +23,11 @@ public class ReadStudentDemo {
 		
 		
 		try {			
+			
+			Date bday = DateUtils.parseDate("12/5/1999");
 			// create a student object
 			System.out.println("Creating new student object...");
-			Student thestudent = new Student("daffy","Duck","daffyduck@gmail.com");
+			Student thestudent = new Student("daffy","Duck",bday,"daffyduck@gmail.com");
 			
 			//start a transaction
 			session.beginTransaction();
@@ -55,6 +59,8 @@ public class ReadStudentDemo {
 			session.getTransaction().commit();
 			System.out.println("Done!");
 			
+		} catch (Exception e) {
+			// TODO: handle exception
 		} finally {
 			factory.close();
 		}
