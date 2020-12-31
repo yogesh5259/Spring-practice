@@ -13,35 +13,36 @@ import javax.persistence.Table;
 @Table(name = "instructor_detail")
 public class InstructorDetail {
 
-	//annotate the class as an entity and map to database table
-	
-	// define the fields
-	
-	// annotate the fields with database column name
-	
-	//create  constructor
-	
-	//generate getter and setters methods
+	// annotate the class as an entity and map to database table
 
-	//generate to string method
-	
+	// define the fields
+
+	// annotate the fields with database column name
+
+	// create constructor
+
+	// generate getter and setters methods
+
+	// generate to string method
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private int id;
-	
+
 	@Column(name = "youtube_channel")
 	private String youtubeChannel;
-	
+
 	@Column(name = "hobby")
 	private String hobby;
-	
+
 	// Add new field for instructor (also add getter and setters)
-	@OneToOne(mappedBy = "instructorDetail",cascade = CascadeType.ALL)
+	@OneToOne(mappedBy = "instructorDetail", cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
+			CascadeType.REFRESH })
 	private Instructor instructor;
-	
+
 	public InstructorDetail() {
-		
+
 	}
 
 	public InstructorDetail(String youtubeChannel, String hobby) {
@@ -85,8 +86,5 @@ public class InstructorDetail {
 	public void setInstructor(Instructor instructor) {
 		this.instructor = instructor;
 	}
-	
-	
-	
-	
+
 }

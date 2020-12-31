@@ -25,17 +25,17 @@ public class CreateDemo {
 
 		try {
 			
-//			//Create the object
-//			Instructor tempInstructor = new Instructor("Yogesh", "Patel", "Yogesh@gmail.com");
-//			
-//			InstructorDetail tempInstructorDetail = new InstructorDetail("http://www.youtube.com", "Love to code");
-//			
-//			//Associate the object
-//			tempInstructor.setInstructorDetail(tempInstructorDetail);
-//			
-			Instructor tempInstructor = new Instructor("Chad", "darby", "chaddarby@luv2code.com");
-			InstructorDetail tempInstructorDetail = new InstructorDetail("http://www.luv2code.com/youtube", "Love to code!!!");
+			//Create the object
+			Instructor tempInstructor = new Instructor("Yogesh", "Patel", "Yogesh@gmail.com");
+			
+			InstructorDetail tempInstructorDetail = new InstructorDetail("http://www.youtube.com", "Love to code");
+			
+			//Associate the object
 			tempInstructor.setInstructorDetail(tempInstructorDetail);
+			
+//			Instructor tempInstructor = new Instructor("Chad", "darby", "chaddarby@luv2code.com");
+//			InstructorDetail tempInstructorDetail = new InstructorDetail("http://www.luv2code.com/youtube", "Love to code!!!");
+//			tempInstructor.setInstructorDetail(tempInstructorDetail);
 
 			
 			// start a transaction
