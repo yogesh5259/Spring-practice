@@ -3,12 +3,13 @@ package com.luv2code.hibernate.demo;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
 
 import com.luv2code.hibernate.demo.entity.Course;
 import com.luv2code.hibernate.demo.entity.Instructor;
 import com.luv2code.hibernate.demo.entity.InstructorDetail;
 
-public class EagerLazyDemo {
+public class FetchJoinDemo {
 
 	public static void main(String[] args) {
 
@@ -31,12 +32,21 @@ public class EagerLazyDemo {
 			
 			//get the instructor from db
 			int theId = 1;
-			Instructor instructor = session.get(Instructor.class,theId);
+
+			//option 2 " Hibernate Query with HQL
 			
-			System.out.println("luv2code : Instructor: " + instructor);
+			Query<Instructor> query = session.createQuery("select i from Instructor i "
+										+ "JOIN FETCH i.courses "
+										+ "where i.id=:theInstructorId",Instructor.class );
+			//set parameter on query
+			query.setParameter("theInstructorId", theId);
+			
+			//execute query and get instructor
+			Instructor tempinstructor = query.getSingleResult();
 			
 			
-			System.out.println("luv2code : Courses : " + instructor.getCourses());
+			System.out.println("luv2code : Instructor: " + tempinstructor);
+			
 			
 			// commit transaction
 			session.getTransaction().commit();
@@ -50,7 +60,7 @@ public class EagerLazyDemo {
 			//option 1:- load while session is open using getter method
 			//this should be fail
 			//get course for the instructor
-			System.out.println("luv2code : Courses : " + instructor.getCourses());
+			System.out.println("luv2code : Courses : " + tempinstructor.getCourses());
 			
 
 			System.out.println("luv2code : Done!");
