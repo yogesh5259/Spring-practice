@@ -42,7 +42,6 @@ public class GetCoursesForMaryDemo {
 			System.out.println("Courses : " + tempStudent.getCourses());
 			
 			
-			
 			// commit transaction
 			session.getTransaction().commit();
 
