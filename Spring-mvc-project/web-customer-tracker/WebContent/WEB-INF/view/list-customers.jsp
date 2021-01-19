@@ -2,7 +2,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>List Customer</title>
+<title>List of Customers</title>
+
+<link type="text/css" rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/style.css">
 </head>
 <body>
 
@@ -23,7 +26,7 @@
 					</tr>
 				</thead>
 				<tbody>
-				<!-- Loop over add print our customers -->
+					<!-- Loop over add print our customers -->
 					<c:forEach var="tempCustomer" items="${customers}">
 						<tr>
 							<td>${tempCustomer.firstName}</td>
