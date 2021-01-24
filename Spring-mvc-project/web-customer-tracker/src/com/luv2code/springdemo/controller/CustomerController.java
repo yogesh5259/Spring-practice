@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.luv2code.springdemo.entity.Customer;
 import com.luv2code.springdemo.service.CustomerService;
+import com.luv2code.springdemo.util.SortUtils;
 
 @Controller
 @RequestMapping("/customer")
@@ -23,12 +24,20 @@ public class CustomerController {
 	private CustomerService customerService;
 
 	@GetMapping("/list")
-	public String listCustomers(Model theModel) {
+	public String listCustomers(Model theModel, @RequestParam(required = false) String sort) {
 
-		// get the customers from the service
-		List<Customer> theCustomers = customerService.getCustomers();
+		List<Customer> theCustomers = null;
 
-		// add the customers to the model
+		if (sort != null) {
+			int theSortField = Integer.parseInt(sort);
+		    theCustomers = customerService.getCustomers(theSortField);
+			
+		} else {
+			
+			theCustomers = customerService.getCustomers(SortUtils.LAST_NAME);
+		
+		}
+		
 		theModel.addAttribute("customers", theCustomers);
 
 		return "list-customers";
@@ -73,6 +82,18 @@ public class CustomerController {
 		customerService.deleteCustomer(theId);
 		
 		return "redirect:/customer/list";
+	}
+	
+	@GetMapping("/search")
+	public String searchCustomer(@RequestParam("theSearchName") String theSearchName, Model theModel) {
+		
+		// get list by search
+		List<Customer> theCustomers = customerService.searchCustomers(theSearchName);
+		
+		//add search result to model
+		theModel.addAttribute("customers",theCustomers);
+		
+		return "list-customers";
 	}
 
 }

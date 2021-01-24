@@ -1,4 +1,7 @@
+<%@page import="com.luv2code.springdemo.util.SortUtils"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,13 +25,32 @@
 				onclick="window.location.href='showFormForAdd'; return false;"
 				class="add-button" />
 
+			<!-- Add search bar -->
+			<form:form action="search" method="GET">
+				<input type="text" name="theSearchName"/>
+				<input type="submit" value="search" class="add-button"/>
+			</form:form>
+
 			<!-- add our html table here-->
 			<table>
 				<thead>
+				
+				<c:url var="sortLinkFirstName" value="/customer/list">
+				<c:param name="sort" value="<%= Integer.toString(SortUtils.FIRST_NAME) %>" />
+				</c:url>
+				
+				<c:url var="sortLinkLastName" value="/customer/list">
+				<c:param name="sort" value="<%= Integer.toString(SortUtils.LAST_NAME) %>" />
+				</c:url>
+				
+				<c:url var="sortLinkEmail" value="/customer/list">
+				<c:param name="sort" value="<%= Integer.toString(SortUtils.EMAIL) %>" />
+				</c:url>
+				
 					<tr>
-						<th>First Name</th>
-						<th>Last Name</th>
-						<th>Email</th>
+						<th><a href="${sortLinkFirstName}">First Name</a></th>
+						<th><a href="${sortLinkLastName}">Last Name</a></th>
+						<th><a href="${sortLinkEmail}">Email</a></th>
 						<th>Action</th>
 					</tr>
 				</thead>
@@ -53,10 +75,8 @@
 							<td>${tempCustomer.lastName}</td>
 							<td>${tempCustomer.email}</td>
 							<td>
-								<!-- display the update link --> 
-								<a href="${updateLink}">Update</a>
-								| 
-								<a href="${deleteLink}"
+								<!-- display the update link --> <a href="${updateLink}">Update</a>
+								| <a href="${deleteLink}"
 								onclick="if(!(confirm('Are you sure you want to delete this customer?'))) return false">Delete</a>
 							</td>
 						</tr>
