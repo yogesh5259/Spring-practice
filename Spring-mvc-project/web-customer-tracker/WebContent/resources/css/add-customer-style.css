@@ -30,7 +30,7 @@ input {
 
 table {   
 	border-style:none;
-	width:50%;
+	width:100%;
 }
 
 tr:nth-child(even) {background: #FFFFFF}
@@ -39,5 +39,9 @@ tr:nth-child(odd) {background: #FFFFFF}
 tr {
 	border-style:none;
 	text-align:left;	
+}
+
+.errors{
+	color:red;
 }
 	
