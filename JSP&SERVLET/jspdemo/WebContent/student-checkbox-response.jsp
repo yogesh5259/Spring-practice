@@ -13,22 +13,22 @@
 
 	The Student is confirmed: ${param.firstName} ${param.lastName}
 
-	<br/><br/>
-	
-	Favorite Programming Languages: <br/>
+	<br />
+	<br /> Favorite Programming Languages:
+	<br />
 	<!-- display list of favorite languages -->
-	
+
 	<ul>
-	<%
-	
-	String[] langs = request.getParameterValues("favoriteLanguages");
-	
-	for (String s : langs){
-		out.println("<li>" + s + "</li>");
-	}
-	
-	%>
-	
+		<%
+		String[] langs = request.getParameterValues("favoriteLanguages");
+
+		if (langs != null) {
+			for (String s : langs) {
+				out.println("<li>" + s + "</li>");
+			}
+		}
+		%>
+
 	</ul>
 
 
