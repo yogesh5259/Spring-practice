@@ -1,3 +1,4 @@
+<%@page import="java.net.URLEncoder"%>
 <html>
 <head>
 <title>Confirmation</title>
@@ -8,6 +9,9 @@
 
 	//read form data
 	String favLang = request.getParameter("favoriteLanguage");
+
+	//encode the  String and add to the cookie
+	favLang = URLEncoder.encode(favLang,"UTF-8");
 	
 	//create the cookie
 	 Cookie theCookie = new Cookie("myApp.favoriteLanguage",favLang);
