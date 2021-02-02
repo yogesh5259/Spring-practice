@@ -10,7 +10,7 @@ import org.springframework.web.context.support.AnnotationConfigWebApplicationCon
 import org.springframework.web.context.support.XmlWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
 
-public class WebServletConfiguration implements WebApplicationInitializer {
+public class WebServletConfiguration { //implements WebApplicationInitializer {
 
 	public void onStartup(ServletContext servletContext) throws ServletException {
 
@@ -23,7 +23,7 @@ public class WebServletConfiguration implements WebApplicationInitializer {
 		
 		//java based config 
 		AnnotationConfigWebApplicationContext annotationConfigApplicationContext = new AnnotationConfigWebApplicationContext();
-		annotationConfigApplicationContext.register(StudentManagementSpringConig.class);
+		annotationConfigApplicationContext.register(StudentManagementSpringConfig.class);
 		
 		//create dispatcher servlet object
 		DispatcherServlet dispatcherServlet = new DispatcherServlet(annotationConfigApplicationContext);
