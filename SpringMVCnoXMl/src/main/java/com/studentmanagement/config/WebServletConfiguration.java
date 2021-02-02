@@ -4,7 +4,9 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;
 
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.web.WebApplicationInitializer;
+import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.context.support.XmlWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
 
@@ -14,12 +16,17 @@ public class WebServletConfiguration implements WebApplicationInitializer {
 
 		System.out.println("On startup method called...");
 		
-		//create web context using xml
-		XmlWebApplicationContext xmlWebApplicationContext = new XmlWebApplicationContext();
-		xmlWebApplicationContext.setConfigLocation("classpath:spring-mvc-servlet.xml");
+//		//create web context using xml if spring config is xml
+//		XmlWebApplicationContext xmlWebApplicationContext = new XmlWebApplicationContext();
+//		xmlWebApplicationContext.setConfigLocation("classpath:spring-mvc-servlet.xml");
+//		
+		
+		//java based config 
+		AnnotationConfigWebApplicationContext annotationConfigApplicationContext = new AnnotationConfigWebApplicationContext();
+		annotationConfigApplicationContext.register(StudentManagementSpringConig.class);
 		
 		//create dispatcher servlet object
-		DispatcherServlet dispatcherServlet = new DispatcherServlet(xmlWebApplicationContext);
+		DispatcherServlet dispatcherServlet = new DispatcherServlet(annotationConfigApplicationContext);
 		
 		//add servlet to servlet context
 		ServletRegistration.Dynamic servletRegistration = servletContext.addServlet("dispatcher", dispatcherServlet);

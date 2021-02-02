@@ -8,6 +8,15 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>student-management Maven Webapp</name>
 	<url>http://maven.apache.org</url>
+
+	<properties>
+		<failOnMissingWebXml>false</failOnMissingWebXml>
+		<maven.compiler.source>14</maven.compiler.source>
+		<maven.compiler.target>14</maven.compiler.target>
+	</properties>
+
+
+
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
